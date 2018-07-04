@@ -120,7 +120,7 @@ export default new Vuex.Store({
     getTransaction ({ commit }, payload) {
       axios({
         method: 'get',
-        url: 'http://localhost:3000/gettransaction'
+        url: 'http://35.240.238.226/gettransaction'
       }).then(data => {
         console.log(data);
         commit('transaction', data.data)

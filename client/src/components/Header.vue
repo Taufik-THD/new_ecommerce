@@ -127,7 +127,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://localhost:3000/signIn',
+        url: 'http://35.240.238.226/signIn',
         data: userData
       }).then(response => {
         // this.isLogin = false
@@ -156,7 +156,7 @@ export default {
           }, function (profile) {
             axios({
               method: 'post',
-              url: 'http://localhost:3000/signIn',
+              url: 'http://35.240.238.226/signIn',
               headers: profile
             }).then((response) => {
               if (response.data.admin) {
