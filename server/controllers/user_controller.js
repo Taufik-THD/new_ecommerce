@@ -123,8 +123,14 @@ module.exports = {
 
                 } else {
 
-                  const jwtToken = jwt.sign({ email: req.body.email, id: user._id }, 'SECRET')
-                  res.status(200).json({ jwtToken })
+                  if (user.role == 'admin') {
+                    const jwtToken = jwt.sign({ email: req.body.email, id: user._id }, "SECRET")
+                    const admin = 'admin'
+                    res.status(200).json({ jwtToken, admin })
+                  } else {
+                    const jwtToken = jwt.sign({ email: req.body.email, id: user._id }, "SECRET")
+                    res.status(200).json({ jwtToken })
+                  }
 
                 }
 
