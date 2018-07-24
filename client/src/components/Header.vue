@@ -121,20 +121,26 @@ export default {
       this.$router.push('/register')
     },
     login () {
+      const self = this
       const userData = {
         email: this.userData.email,
         password: this.userData.password
       }
       axios({
         method: 'post',
-        url: 'http://35.240.238.226/signIn',
+        url: 'http://localhost:3000/signIn',
         data: userData
       }).then(response => {
+        if (response.data.admin) {
+          self.$router.push('admin')
+          localStorage.setItem('authorization', response.data.jwtToken)
+        } else {
+          this.loginForm = false
+          localStorage.setItem('authorization', response.data.jwtToken)
+          this.$router.push('/')
+          this.$store.dispatch('loginChange')
+        }
         // this.isLogin = false
-        this.loginForm = false
-        localStorage.setItem('authorization', response.data.jwtToken)
-        this.$router.push('/')
-        this.$store.dispatch('loginChange')
       }).catch(err => {
         console.log(err);
       })
@@ -156,7 +162,7 @@ export default {
           }, function (profile) {
             axios({
               method: 'post',
-              url: 'http://35.240.238.226/signIn',
+              url: 'http://localhost:3000/signIn',
               headers: profile
             }).then((response) => {
               if (response.data.admin) {

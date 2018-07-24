@@ -19,6 +19,8 @@ module.exports = {
 
   addItem(req, res) {
 
+    console.log(req);
+
     const newItem = {
       name: req.body.name,
       price: req.body.price,

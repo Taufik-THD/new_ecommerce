@@ -2,7 +2,7 @@
   <div class="nav">
     <div class="input-field">
       <nav>
-        <div class="item" style="; margin: 65% 0 0 0;">
+        <div class="item" style="; margin: 5% 0 0 0;">
           <ul id="nav-mobile" class="hide-on-med-and-down">
             <li><button class="btn waves-effect waves-light" style="height:5%; background-color:#181818;" title="Items" @click='goToItems'><i class="material-icons">filter_list</i></button></li>
             <li><button class="btn waves-effect waves-light" style="height:5%; background-color:#181818;" title="Orders" @click='goToOrders'><i class="material-icons">mail</i>{{ getTransaction.length }}</button></li>

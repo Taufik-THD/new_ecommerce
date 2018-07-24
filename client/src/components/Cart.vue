@@ -142,7 +142,7 @@ export default {
     removeQty (id) {
       axios({
         method: 'post',
-        url: `http://35.240.238.226/items/removeQty/${id}`
+        url: `http://localhost:3000/items/removeQty/${id}`
       })
       .then(()=>{
         this.getCart()
@@ -172,7 +172,7 @@ export default {
       const dataTransaction = this.transactionData
       axios({
         method: 'post',
-        url: 'http://35.240.238.226/transaction',
+        url: 'http://localhost:3000/transaction',
         data: {
           cart: this.$store.state.cart,
           dataTransaction,

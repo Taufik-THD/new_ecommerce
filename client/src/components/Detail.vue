@@ -52,7 +52,7 @@ export default {
     getDetail () {
       axios({
         method: 'get',
-        url: `http://35.240.238.226/items/detail/${this.$route.params.id}`
+        url: `http://localhost:3000/items/detail/${this.$route.params.id}`
       }).then(response => {
         this.item = response.data[0]
         this.detailItem = response.data[0].detail.split('\r\n')

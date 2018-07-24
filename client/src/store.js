@@ -8,11 +8,11 @@ export default new Vuex.Store({
   state: {
     cart: [],
     isLogin: false,
-    allItem: null,
-    detailItem: null,
-    transaction: null,
-    detailTransaction: null,
-    editItemData: null
+    allItem: [],
+    detailItem: [],
+    transaction: [],
+    detailTransaction: [],
+    editItemData: []
   },
   mutations: {
     add (state, addCart) {
@@ -120,7 +120,7 @@ export default new Vuex.Store({
     getTransaction ({ commit }, payload) {
       axios({
         method: 'get',
-        url: 'http://35.240.238.226/gettransaction'
+        url: 'http://104.196.208.241/gettransaction'
       }).then(data => {
         console.log(data);
         commit('transaction', data.data)

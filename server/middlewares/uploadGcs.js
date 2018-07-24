@@ -24,9 +24,9 @@ function getPublicUrl (filename) {
 function sendUploadToGCS (req, res, next) {
   console.log('masuk dalem')
   console.log(req.file)
-  // if (!req.file) {
-  //   return next('upload mungkin gagal');
-  // }
+  if (!req.file) {
+    return next('upload mungkin gagal');
+  }
 
   const gcsname = Date.now() + '.' + req.file.originalname.split('.').pop()+"!d";
   const file = bucket.file(gcsname);

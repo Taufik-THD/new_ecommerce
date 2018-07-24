@@ -14,7 +14,7 @@
           </div>
           <div class="card-action" style="padding-left:8%;">
             <a class="btn red" style="width:100%;" v-if='isLogins == true && item.stock != 0' @click='addToCart(item)'>add to cart</a>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEdt34Dwuhb4i0TpxYd21MHzTtqtQ24pOki1-sgoPHf-_M8fhpDg" alt="" style="width:49%;" v-if='isLogins == true && item.stock == 0'>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEdt34Dwuhb4i0TpxYd21MHzTtqtQ24pOki1-sgoPHf-_M8fhpDg" alt="" style="width:48.5%;" v-if='isLogins == true && item.stock == 0'>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default {
     getItem () {
       axios({
         method: 'get',
-        url: 'http://35.240.238.226/items'
+        url: 'http://localhost:3000/items'
       }).then(data => {
         const items = data.data.data
         this.$store.dispatch('getItems', items)

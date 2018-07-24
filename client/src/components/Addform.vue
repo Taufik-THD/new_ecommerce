@@ -17,23 +17,23 @@
         <div class="row">
           <br>
           <div class="input-field col s12">
-            <input id="item_name" type="text" class="validate" v-model='name'>
+            <input id="item_name" type="text" class="validate" v-model='name' v-on:change='nameHandler()'>
             <label for="item_name">Item Name</label>
           </div>
           <div class="row">
             <div class="col s6 m12">
               <div class="input-field col s6">
-                <input id="price" type="text" class="validate" v-model='price'>
+                <input id="price" type="text" class="validate" v-model='price' v-on:change='nameHandler()'>
                 <label for="price">Price</label>
               </div>
               <div class="input-field col s6">
-                <input id="stock" type="text" class="validate" v-model='stock'>
+                <input id="stock" type="text" class="validate" v-model='stock' v-on:change='nameHandler()'>
                 <label for="stock">Stock</label>
               </div>
             </div>
           </div>
           <div class="input-field col s12">
-            <textarea id="detail" class="materialize-textarea" v-model='detail'></textarea>
+            <textarea id="detail" class="materialize-textarea" v-model='detail' v-on:change='nameHandler()'></textarea>
             <label for="detail">Detail Item</label>
           </div>
           <div class="file-field input-field col s12">
@@ -47,7 +47,7 @@
           </div>
           <center class="col s12">
             <a class="btn" style="width:48%; margin: 1% 1% 1% 1%" @click='back'>Done</a>
-            <a class="btn" style="width:48%; margin: 1% 1% 1% 1%" @click='addNewItem'>Post</a>
+            <a class="btn" style="width:48%; margin: 1% 1% 1% 1%" @click='addNewItem' :disabled="button == false">Post</a>
           </center>
         </div>
       </form>
@@ -66,10 +66,24 @@ export default {
       detail: '',
       stock: '',
       file: '',
-      form : false
+      form : false,
+      button: false
     }
   },
   methods: {
+    nameHandler () {
+      if (this.name == '') {
+        this.button = false
+      } else if (this.price == '') {
+        this.button = false
+      } else if (this.detail == '') {
+        this.button = false
+      } else if (this.stock == '') {
+        this.button = false
+      } else {
+        this.button = true
+      }
+    },
     back () {
       this.$router.push('/admin')
     },
@@ -80,7 +94,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://35.240.238.226/upload',
+        url: 'http://localhost:3000/upload',
         data: itemData
       })
     },
@@ -94,7 +108,7 @@ export default {
       formData.append('stock', this.stock)
       axios({
         method: 'post',
-        url: 'http://35.240.238.226/items',
+        url: 'http://localhost:3000/items',
         data: formData
       }).then(response => {
         this.form = false
