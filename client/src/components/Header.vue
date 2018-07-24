@@ -128,7 +128,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://localhost:3000/signIn',
+        url: 'http://35.240.155.158/signIn',
         data: userData
       }).then(response => {
         if (response.data.admin) {
@@ -162,7 +162,7 @@ export default {
           }, function (profile) {
             axios({
               method: 'post',
-              url: 'http://localhost:3000/signIn',
+              url: 'http://35.240.155.158/signIn',
               headers: profile
             }).then((response) => {
               if (response.data.admin) {
@@ -187,7 +187,7 @@ export default {
         console.log(profile);
         // axios({
         //   method: 'post',
-        //   url: 'http://localhost:3000/signIn',
+        //   url: 'http://35.240.155.158/signIn',
         //   headers: profile
         // }).then((response) => {
         //   console.log('Welcome!  Fetching your information.... ')

@@ -73,7 +73,7 @@ export default {
         const self = this
         axios({
           method: 'post',
-          url: 'http://localhost:3000/signup',
+          url: 'http://35.240.155.158/signup',
           data: self.userData
         }).then(response => {
             this.userData.fullname = '',

@@ -73,7 +73,7 @@ export default {
       item.stock = this.stock
       axios({
         method: 'post',
-        url: 'http://localhost:3000/items/edit',
+        url: 'http://35.240.155.158/items/edit',
         data: item
       }).then(response => {
         this.$router.push('admin')

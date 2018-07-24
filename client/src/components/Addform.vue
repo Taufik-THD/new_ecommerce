@@ -94,7 +94,7 @@ export default {
       }
       axios({
         method: 'post',
-        url: 'http://localhost:3000/upload',
+        url: 'http://35.240.155.158/upload',
         data: itemData
       })
     },
@@ -108,7 +108,7 @@ export default {
       formData.append('stock', this.stock)
       axios({
         method: 'post',
-        url: 'http://localhost:3000/items',
+        url: 'http://35.240.155.158/items',
         data: formData
       }).then(response => {
         this.form = false

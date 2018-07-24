@@ -56,7 +56,7 @@ export default {
     doneTransaction (id) {
       axios({
         method: 'post',
-        url: 'http://localhost:3000/done',
+        url: 'http://35.240.155.158/done',
         data: {
           id: id
         }

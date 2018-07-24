@@ -56,7 +56,7 @@ export default {
     getItem () {
       axios({
         method: 'get',
-        url: 'http://localhost:3000/items'
+        url: 'http://35.240.155.158/items'
       }).then(data => {
         const items = data.data.data
         this.$store.dispatch('getItems', items)

@@ -63,7 +63,7 @@ export default {
     getItem () {
       axios({
         method: 'get',
-        url: 'http://localhost:3000/items'
+        url: 'http://35.240.155.158/items'
       }).then(data => {
         this.items = data.data.data
         this.form = true
@@ -80,7 +80,7 @@ export default {
         if (accept) {
           axios({
             method: 'delete',
-            url: `http://localhost:3000/items/${id}`
+            url: `http://35.240.155.158/items/${id}`
           }).then(response => {
             this.getItem()
           }).catch(err => {
