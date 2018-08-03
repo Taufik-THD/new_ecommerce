@@ -1,3 +1,3 @@
-# new_ecommerce
+# ecommerce
 
 http://coffee-shop.opik.rocks
