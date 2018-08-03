@@ -2,12 +2,12 @@
   <div class="container" style="background-color:#ecf0f1; width:95%;">
     <div class="row">
       <div class="col s3 m3" v-for='item in getAllitems'>
-        <div class="card scale-up-center">
+        <div class="card scale-up-center" @click='getDetailItem(item)' style="cursor:pointer;">
           <div class="card-image">
             <img :src="item.picture" style="width:100%; height:250px;">
           </div>
           <div class="card-content" style="height:50px; padding-bottom:20%;">
-            <a><span class="card-title" style="font-size:16px;"> <b  style="cursor:pointer;" @click='getDetailItem(item)'>{{ item.name }}</b> </span></a>
+            <a><span class="card-title" style="font-size:16px;"> <b>{{ item.name }}</b> </span></a>
           </div>
           <div class="card-action">
             <h6 style="color:red;"> <b> Rp. {{ item.price.toLocaleString() }}</b></h6>

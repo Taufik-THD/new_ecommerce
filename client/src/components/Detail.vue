@@ -13,7 +13,10 @@
               <hr>
               <h4 style=" width:100%; text-align:justify; color:#d84315;"> Rp. {{ item.price.toLocaleString() }},-</h4>
               <br><br>
-              <button type="button" class="btn blocked large" name="button" style="width:100%;">Add to cart</button>
+              <button type="button" class="btn blocked large" name="button" style="width:100%;" v-if='isLogin == true'>Add to cart</button>
+              <div style="background-color: rgba(225,225,225,0.5)">
+                <p style="color: red;">Sign In and get this item.</p>
+              </div>
             </div>
           </div>
           <br>
@@ -41,11 +44,15 @@ import axios from 'axios'
 export default {
   created () {
     this.getDetail()
+    if (localStorage.getItem('authorization')) {
+      this.isLogin = true
+    }
   },
   data () {
     return {
       detailItem: [],
-      item: null
+      item: null,
+      isLogin: false
     }
   },
   methods : {
@@ -59,7 +66,7 @@ export default {
       }).catch(err => {
         console.log(err);
       })
-    }
+    },
   }
 }
 </script>

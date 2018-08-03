@@ -57,8 +57,6 @@ export default {
     }
   },
   created () {
-    this.confirmCheck()
-
     if (localStorage.hasOwnProperty('authorization')) {
       this.$router.push('/')
     }
